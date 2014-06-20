@@ -1,0 +1,28 @@
+{
+  "name": "gaia-tabs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "script.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {
+    "gaia-component-utils": "^0.1.0",
+    "gaia-test": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "gaia-test-lint && gaia-test-unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gaia-components/gaia-tabs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaia-components/gaia-tabs/issues"
+  },
+  "homepage": "https://github.com/gaia-components/gaia-tabs"
+}

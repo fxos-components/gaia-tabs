@@ -1,0 +1,13 @@
+
+{
+  "files": [
+    "test/unit/setup.js",
+    "bower_components/gaia-component-utils/index.js",
+    "script.js",
+    "test/unit/test.js",
+    {
+      "pattern": "style.css",
+      "included": false
+    }
+  ]
+}
