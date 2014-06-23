@@ -7,10 +7,6 @@
     "example": "examples",
     "test": "test"
   },
-  "dependencies": {
-    "gaia-component-utils": "^0.1.0",
-    "gaia-test": "^0.0.0"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "gaia-test-lint && gaia-test-unit"
@@ -24,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/gaia-components/gaia-tabs/issues"
   },
-  "homepage": "https://github.com/gaia-components/gaia-tabs"
+  "homepage": "https://github.com/gaia-components/gaia-tabs",
+  "dependencies": {
+    "gaia-component-utils": "git://github.com/gaia-components/gaia-component-utils",
+    "gaia-test": "git://github.com/gaia-components/gaia-test"
+  }
 }

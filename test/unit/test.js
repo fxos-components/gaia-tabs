@@ -45,14 +45,23 @@ suite('GaiaTabs', function() {
     assert.isFalse(this.children[1].classList.contains('selected'));
   });
 
+  test('It adds `role="tab"` to children', function() {
+    [].forEach.call(this.children, function(child) {
+      assert.equal(child.getAttribute('role'), 'tab');
+    });
+  });
+
+  test('It adds `role="tablist"` to self', function() {
+    assert.equal(this.el.getAttribute('role'), 'tablist');
+  });
+
   suite('style', function() {
     setup(function(done) {
       this.container.style.width = '400px';
       document.body.appendChild(this.el);
-      // this.el.children[3].onload = function() {
-        setTimeout(done, 50);
-        // done();
-      // };
+      this.el.children[3].onload = function() {
+        done();
+      };
     });
 
     test('Should position tabs horizontally', function() {
@@ -64,18 +73,18 @@ suite('GaiaTabs', function() {
       assert.isTrue(this.children[1].pos.right < this.children[2].pos.right);
     });
 
-    // test('Should size each tab to fill horizontal space equally', function() {
-    //   this.el.pos = this.el.getBoundingClientRect();
+    test('Should size each tab to fill horizontal space equally', function() {
+      this.el.pos = this.el.getBoundingClientRect();
 
-    //   this.children[0].pos = this.children[0].getBoundingClientRect();
-    //   this.children[1].pos = this.children[1].getBoundingClientRect();
-    //   this.children[2].pos = this.children[2].getBoundingClientRect();
+      this.children[0].pos = this.children[0].getBoundingClientRect();
+      this.children[1].pos = this.children[1].getBoundingClientRect();
+      this.children[2].pos = this.children[2].getBoundingClientRect();
 
-    //   var expected = Math.round(this.el.pos.width / 3);
+      var expected = Math.round(this.el.pos.width / 3);
 
-    //   assert.equal(Math.round(this.children[0].pos.width), expected);
-    //   assert.equal(Math.round(this.children[1].pos.width), expected);
-    //   assert.equal(Math.round(this.children[2].pos.width), expected);
-    // });
+      assert.equal(Math.round(this.children[0].pos.width), expected);
+      assert.equal(Math.round(this.children[1].pos.width), expected);
+      assert.equal(Math.round(this.children[2].pos.width), expected);
+    });
   });
 });
