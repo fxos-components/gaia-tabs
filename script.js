@@ -24,19 +24,29 @@ var proto = Object.create(HTMLElement.prototype);
  * Runs when an instance of `GaiaTabs`
  * is first created.
  *
- * The intial value of the `select` attribute
+ * The initial value of the `select` attribute
  * is used to select a tab.
  *
  * @private
  */
 proto.createdCallback = function() {
-  for (var el = this.firstElementChild; el; el = el.nextElementSibling) {
-    el.setAttribute('role', 'tab');
-  }
-  this.setAttribute('role', 'tablist');
+  this.makeAccessible();
   utils.style.call(this, stylesheets);
   this.addEventListener('click', this.onClick);
   this.select(this.getAttribute('selected'));
+};
+
+/**
+ * Add necessary attributes to
+ * improve accessibility.
+ *
+ * @private
+ */
+proto.makeAccessible = function() {
+  this.setAttribute('role', 'tablist');
+  for (var el = this.firstElementChild; el; el = el.nextElementSibling) {
+    el.setAttribute('role', 'tab');
+  }
 };
 
 /**
@@ -54,8 +64,8 @@ proto.attributeChangedCallback = function(attr, oldVal, newVal) {
 
 /**
  * Walks up the DOM from the `event.target`
- * until it finds an immendiate child
- * of the element, then selects the index
+ * until it finds an immediate child of the
+ * element, then selects the index
  * of that element.
  *
  * @param  {Event} e
@@ -111,7 +121,7 @@ proto.deselect = function(index) {
   }
 };
 
-// Register and return the constructor
+// Register and expose the constructor
 module.exports = document.registerElement('gaia-tabs', { prototype: proto });
 
 });})((function(n,w){'use strict';return typeof define=='function'&&define.amd?
