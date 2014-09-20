@@ -59,6 +59,7 @@ proto.makeAccessible = function() {
   this.setAttribute('role', 'tablist');
   for (var el = this.firstElementChild; el; el = el.nextElementSibling) {
     el.setAttribute('role', 'tab');
+    el.tabIndex = 0;
   }
 };
 
@@ -202,6 +203,16 @@ var template = `
   font-weight: 400;
 }
 
+/**
+ * [disabled]
+ */
+
+.-content > [disabled] {
+  transition: none;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 /** Style
  ---------------------------------------------------------*/
 
@@ -232,8 +243,7 @@ style {
 // Register and expose the constructor
 module.exports = document.registerElement('gaia-tabs', { prototype: proto });
 
-},'gaia-tabs',this);})(function(c,n,w){
-if(typeof define=='function'&&define.amd){
-define(function(require,exports,module){c(require,exports,module);});
-}else if(typeof module=='object'){c(require,exports,module);}else{
-var m={exports:{}};w[n]=c(function(n){return w[n];},m.exports,m)||m.exports;}});
+});})(typeof define=='function'&&define.amd?define
+:(function(n,w){return typeof module=='object'?function(c){
+c(require,exports,module);}:function(c){var m={exports:{}};c(function(n){
+return w[n];},m.exports,m);w[n]=m.exports;};})('gaia-tabs',this));
