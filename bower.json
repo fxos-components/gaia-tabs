@@ -16,7 +16,7 @@
     "README.md"
   ],
   "dependencies": {
-    "gaia-component": "gaia-components/gaia-component#~0.2.0"
+    "gaia-component": "gaia-components/gaia-component#~0.3.0"
   },
   "devDependencies": {
     "base": "gaia-components/base"
