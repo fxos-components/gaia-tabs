@@ -167,7 +167,6 @@ module.exports = component.register('gaia-tabs', {
 
       font-size: 17px;
       font-style: italic;
-      font-weight: lighter;
       background: none;
       cursor: pointer;
       color: inherit;
